@@ -4,7 +4,7 @@ export function getApiConfiguration(apiType) {
         case "crop":
             apiConfigurations["apiType"] = "crop"
             apiConfigurations["inputFields"] = ["nitrogenLevel", "phosphorousLevel", "potassiumLevel", "temperatureLevel", "phLevel", "humidityLevel", "rainfallLevel"];
-            apiConfigurations["endPoint"] = "http://ifarmer-app.herokuapp.com/cropprediction";
+            apiConfigurations["endPoint"] = "https://ifarmer-app.herokuapp.com/cropprediction";
             apiConfigurations["title"] = "Crop Prediction"
             apiConfigurations["subtitle"] = "Enter the values of the following parameters to predict the suitable crop to grow";
             apiConfigurations["modalColor"] = "var(--color-lightGreen)"
@@ -21,7 +21,7 @@ export function getApiConfiguration(apiType) {
         case "disease":
             apiConfigurations["apiType"] = "disease"
             apiConfigurations["inputFields"] = ["cropImage"];
-            apiConfigurations["endPoint"] = "http://ifarmer-app.herokuapp.com/cropdiseaseprediction/";
+            apiConfigurations["endPoint"] = "https://ifarmer-app.herokuapp.com/cropdiseaseprediction/";
             apiConfigurations["title"] = "Disease Prediction"
             apiConfigurations["subtitle"] = "Upload the diseased crop image file to predict the disease";
             apiConfigurations["modalColor"] = "var(--color-lightOrange)"
