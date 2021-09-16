@@ -1,0 +1,26 @@
+.header{
+    position: relative;
+    // margin:  0;
+
+    &__logo-div{
+        width: 22rem;
+        height: 22rem;
+        margin: 0 auto;
+    }
+    &__image{
+        width: 22rem;
+        height: 22rem;
+        object-fit: contain;
+        
+    }
+
+    &__black-strip{
+        position: absolute;
+        height: 4rem;
+        width: 100%;
+        background: black;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: -1;
+    }
+}

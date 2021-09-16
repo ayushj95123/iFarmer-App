@@ -1,0 +1,38 @@
+.landingPagediv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 2rem 10rem;
+
+  // @media screen and(max-width: 1300px) {
+  //     margin: 2rem 10rem;
+  // }
+  .featureBox {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    margin: 2rem;
+    background-color: #fff;
+  }
+
+  .cropPredictionBox {
+    // background-color: var(--color-lightGreen);
+    button {
+      background-color: var(--color-lightGreen);
+    }
+  }
+
+  .diseasePredictionBox {
+    // background-color: var(--color-lightPink);
+    button {
+      background-color: var(--color-lightOrange);
+    }
+  }
+
+  .weatherPredictionBox {
+    // background-color: var(--color-lightBlue);
+    button {
+      background-color: var(--color-lightBlue);
+    }
+  }
+}

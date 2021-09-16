@@ -1,0 +1,22 @@
+.result-div {
+   margin: 8rem 12rem 6rem;
+  
+  .result {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    background-color: #fff;
+    height: 200px;
+    // width: 40%;
+    // margin: auto;
+  }
+  .note {
+    color: rgb(253, 77, 7);
+    text-align: left;
+  }
+
+  .weather-result-div{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
