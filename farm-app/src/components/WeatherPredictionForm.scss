@@ -1,0 +1,25 @@
+.weatherform-div{
+text-align: center;
+    .datepick-div{
+        display: inline-block;
+        height: 250px;
+        width: max-content;
+        // .react-datepicker-ignore-onclickoutside{
+        //     width: 100%;
+        //     padding: 1rem;
+        //     border-radius: 5px;
+        // }
+        input{
+            width: 100%;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .react-datepicker{
+            transform: scale(1.5);
+            top: 30px;
+            left: 60px;
+        }
+
+    }
+}

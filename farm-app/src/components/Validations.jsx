@@ -68,6 +68,18 @@ export function validPH(parameter, val, formErrors) {
     return true;
 }
 
+// export function validDate(parameter, val, formErrors) {
+    
+//     if () {
+//         formErrors[parameter] = "The value should be in range 2 to 10"
+//         return false;
+//     }
+//     delete formErrors[parameter]
+//     return true;
+// }
+
+
+
 export const validationMethod = {
     "nitrogenLevel" : validNitrogen,
     "phosphorousLevel" : validPhosphorous,
@@ -76,4 +88,5 @@ export const validationMethod = {
     "temperatureLevel" : validTemperature,
     "phLevel" : validPH,
     "rainfallLevel" : validRainfall
+    //"selectedDate" : validDate
 }

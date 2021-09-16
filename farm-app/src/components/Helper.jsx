@@ -11,12 +11,21 @@ export function getApiConfiguration(apiType) {
             break;
         case "weather":
             apiConfigurations["apiType"] = "weather"
-            apiConfigurations["inputFields"] = ["weatherFile"];
-            apiConfigurations["endPoint"] = "https://4af0-34-86-4-118.ngrok.io/files/";
+            apiConfigurations["inputFields"] = ["selectedDate"];
+            apiConfigurations["endPoint"] = "https://ifarmerweather-api.herokuapp.com/weatherprediction?dateid=";
             apiConfigurations["title"] = "Weather Prediction"
-            apiConfigurations["subtitle"] = "Upload the csv file to predict the weather"
+            apiConfigurations["subtitle"] = "Select the date to predict the weather"
             apiConfigurations["modalColor"] = "var(--color-lightBlue)"
 
+            break;
+        case "weatherTrain":
+            apiConfigurations["apiType"] = "weatherTrain"
+            apiConfigurations["inputFields"] = ["inputFile"];
+            apiConfigurations["endPoint"] = "https://ifarmerweather-api.herokuapp.com/datasetfiles/";
+            apiConfigurations["title"] = "Weather Model Training"
+            apiConfigurations["subtitle"] = "Upload the csv file to train the weather model"
+            apiConfigurations["modalColor"] = "var(--color-lightBlue)"
+    
             break;
         case "disease":
             apiConfigurations["apiType"] = "disease"
@@ -42,24 +51,26 @@ export const apiKey = {
     "phLevel" : "ph",
     "rainfallLevel" : "rainfall",
     "cropImage" : "cropImage",
-    "weatherFile" : "weatherFile"
+    "selectedDate" : "selectedDate",
+    "inputFile": "inputFile"
 }
 
 export const parameterLabel = {
-    "nitrogenLevel" : "Nitrogen Level",
-    "phosphorousLevel" : "Phosphorous Level",
-    "potassiumLevel" : "Potassium Level",
-    "humidityLevel" : "Humidity Level",
-    "temperatureLevel" : "Temperature Level",
-    "phLevel" : "PH Level",
-    "rainfallLevel" : "Rainfall Lavel",
+    "nitrogenLevel" : "Nitrogen Level(0-150)",
+    "phosphorousLevel" : "Phosphorous Level(5-150)",
+    "potassiumLevel" : "Potassium Level(5-205)",
+    "humidityLevel" : "Humidity Level(10-100)",
+    "temperatureLevel" : "Temperature Level(8-50)",
+    "phLevel" : "PH Level(2-10)",
+    "rainfallLevel" : "Rainfall Lavel(15-300)",
     "cropImage" : "Crop Image",
-    "weatherFile" : "Weather Data File"
+    "selectedDate" : "Select Date",
+    "inputFile": "Weather History File"
 }
 
 
 export function getInputType(parameter) {
-    if (parameter === "cropImage" || parameter ==="weatherFile") {
+    if (parameter === "cropImage" || parameter === "inputFile") {
         return "file"
     } else {
         return "text"

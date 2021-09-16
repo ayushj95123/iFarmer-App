@@ -32,11 +32,11 @@ export default function CropForm({ apiConfigurations, successCallback = null, fa
             }
         } else {
             const formData = new FormData();
-            console.log("Form Data:::::::::::", apiParameters["weatherFile"])
+            
             if (apiConfigurations["apiType"] === 'disease') {
                 formData.append('file', apiParameters["cropImage"]);
             } else {
-                formData.append('files', apiParameters["weatherFile"]);
+                formData.append('files', apiParameters["inputFile"]);
             }
             requestOptions = {
                 method: 'POST',

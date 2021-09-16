@@ -7,8 +7,17 @@
     padding: 3rem;
     background-color: #fff;
     height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     // width: 40%;
     // margin: auto;
+    .result-header{
+      background-color: #f9f4c7;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 30%;
+    }
   }
   .note {
     color: rgb(253, 77, 7);

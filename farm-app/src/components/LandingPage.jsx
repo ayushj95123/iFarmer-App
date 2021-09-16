@@ -1,27 +1,34 @@
 import React, {useState} from "react"
 import CropForm from "./CropForm"
+
 import { getApiConfiguration } from "./Helper"
 import "./LandingPage.scss"
 import Modal from "./Modal"
-import ResultModal from "./ResultModal"
 import ResultDiv from "./ResultDiv"
+import WeatherForm from "./WeatherPredictionForm"
 
 export default function LandingPage(){
     const [cropButtonClicked, setCropButtonClicked] = useState(false)
+    const [weatherButtonClicked, setWeatherButtonClicked] = useState(false)
     const [apiConfig, setApiConfig] = useState({})
-    const [isResponseSuccess, setIsResponseSuccess] = useState(false)
     const [apiType, setApiType] = useState("")
     const [apiResponse, setApiResponse] = useState({})
 
     const showModal = (apiType) => {
         console.log("i got clicked" , cropButtonClicked)
+        console.log("APIIIIIIII:", apiType)
         setApiType(apiType)
         const config = getApiConfiguration(apiType)
         setApiConfig({...config})
-        setCropButtonClicked(true)
+        if (apiType === "weather") {
+            setWeatherButtonClicked(true)
+        } else {
+            setCropButtonClicked(true)
+        }
     }
     const closeParamterModal = ()=> {
         setCropButtonClicked(false)
+        setWeatherButtonClicked(false)
     }
 
     const handleSuccess = (apiType, inputParamters ,data) => {
@@ -29,14 +36,14 @@ export default function LandingPage(){
         setApiResponse({...data})
         //console.log("API RESPONSE:", apiResponse)
         
-        setIsResponseSuccess(true)
+        
     }
 
     const handleFailure = (apiType, error) => {
         closeParamterModal()
         setApiResponse({...error})
         console.log("API RESPONSE:", apiResponse)
-        setIsResponseSuccess(true)
+        
     }
 
 
@@ -46,10 +53,10 @@ export default function LandingPage(){
             <div className="cropPredictionBox featureBox">
                 <h2 className="header header-h2 mb-2">
                     {/* CROP PREDICTION */}
-                    Crop Prediction
+                    Crop Recommendation
                 </h2>
                 <p className="paragraph paragraph-normal paragraph-greyed mb-1">
-                    Know what crop to grow by filling in few details. Improve your produce and gain more by more understanding.
+                    Know what crop to grow by filling in few details. Improve your produce and gain more by more understanding. Crop recommendation depends on the soil, geographic and climatic attributes that mainly contributes to the crop yield. Give it a try.
                 </p>
                 <button className= "btn" onClick= {() => showModal("crop")} >
                     Get Prediction
@@ -61,10 +68,13 @@ export default function LandingPage(){
                     Weather Prediction
                 </h2>
                 <p className="paragraph paragraph-normal paragraph-greyed mb-1">
-                    Know what crop to grow by filling in few details. Improve your produce and gain more by more understanding.
+                Use our API to get the weather forecasts. Weather forecasting can help farmers to make better decisions related to crops. 
                 </p>
                 <button className= "btn" onClick= {() => showModal("weather")}>
                     Get Prediction
+                </button>
+                <button className= "btn" onClick= {() => showModal("weatherTrain")}>
+                    Train Model
                 </button>
             </div>
             <div className="diseasePredictionBox featureBox">
@@ -81,6 +91,7 @@ export default function LandingPage(){
                 </button>
             </div>
             { cropButtonClicked && <Modal children = {<CropForm apiConfigurations = {apiConfig} successCallback = {handleSuccess} failureCallBack = {handleFailure}/>} width = "35%" closeMethod = {closeParamterModal}/>}
+            { weatherButtonClicked && <Modal children = {<WeatherForm apiConfigurations = {apiConfig} successCallback = {handleSuccess} failureCallBack = {handleFailure}/>} width = "35%" closeMethod = {closeParamterModal}/>}
             {/* { isResponseSuccess && <Modal children = {<ResultModal title = "Prediction" message="{apiResponse}"/>} width = "35%"  closeMethod = {closeResultModal}/>} */}
             {/* { cropButtonClicked && <Modal children = {<CropForm/>} width = "50%" closeMethod = {closeModal}/>} */}
         </div>
