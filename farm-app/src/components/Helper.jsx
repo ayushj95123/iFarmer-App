@@ -12,7 +12,7 @@ export function getApiConfiguration(apiType) {
         case "weather":
             apiConfigurations["apiType"] = "weather"
             apiConfigurations["inputFields"] = ["selectedDate"];
-            apiConfigurations["endPoint"] = "https://7379-104-196-66-26.ngrok.io/weatherprediction?dateid=";
+            apiConfigurations["endPoint"] = "https://1e8b-104-196-66-26.ngrok.io/weatherprediction?dateid=";
             apiConfigurations["title"] = "Weather Prediction"
             apiConfigurations["subtitle"] = "Select the date to predict the weather"
             apiConfigurations["modalColor"] = "var(--color-lightBlue)"
@@ -21,7 +21,7 @@ export function getApiConfiguration(apiType) {
         case "weatherTrain":
             apiConfigurations["apiType"] = "weatherTrain"
             apiConfigurations["inputFields"] = ["inputFile"];
-            apiConfigurations["endPoint"] = "https://7379-104-196-66-26.ngrok.io/datasetfiles/";
+            apiConfigurations["endPoint"] = "https://1e8b-104-196-66-26.ngrok.io/datasetfiles/";
             apiConfigurations["title"] = "Weather Model Training"
             apiConfigurations["subtitle"] = "Upload the csv file to train the weather model"
             apiConfigurations["modalColor"] = "var(--color-lightBlue)"
