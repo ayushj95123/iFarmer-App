@@ -13,10 +13,11 @@ useEffect(()=>{
         //let pr = JSON.parse(response['result'])
         let pr = response['result']
         if (pr) {
-        if (pr.length === 0) {
+        let finalPR = JSON.parse(pr)
+        if (finalPR.length === 0) {
             setFinalData("Oops! Unable to get weather data for selected date")
         } else {
-            setFinalData(pr[0])
+            setFinalData(finalPR[0])
         }
     }
 
